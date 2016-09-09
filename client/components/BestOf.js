@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './NavBar';
 import { GoogleMap, GoogleMapLoader, InfoWindow, Marker, SearchBox } from "react-google-maps";
 import update from "react-addons-update";
+import DirectionButton from './DirectionButton'
 
 class BestOf extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class BestOf extends React.Component {
             lng : -118.4916591
           },
           info: "Best Poke: Spinfish",
-          showInfo: false,
+          showInfo: true,
           defaultAnimation: 2,
         },
         {
@@ -23,7 +24,7 @@ class BestOf extends React.Component {
             lng : -118.4959362
           },
           info: "Best Sandwich: Bay Cities",
-          showInfo: false,
+          showInfo: true,
           defaultAnimation: 2,
         },
         {
@@ -32,7 +33,7 @@ class BestOf extends React.Component {
             lng : -118.4922921
           },
           info: "Best Wendy's: Wendy's",
-          showInfo: false,
+          showInfo: true,
           defaultAnimation: 2,
         },
         {
@@ -41,7 +42,7 @@ class BestOf extends React.Component {
             lng : -118.4935474
           },
           info: "Best Burger: Umami Burger",
-          showInfo: false,
+          showInfo: true,
           defaultAnimation: 2,
         },
         {
@@ -50,7 +51,7 @@ class BestOf extends React.Component {
             lng : -118.4935666
           },
           info: "Best Coffee: Philz Coffee",
-          showInfo: false,
+          showInfo: true,
           defaultAnimation: 2,
         },
         {
@@ -59,7 +60,7 @@ class BestOf extends React.Component {
             lng : -118.4938359
           },
           info: "Best Upscale French-Asian Cuisine: Cassia",
-          showInfo: false,
+          showInfo: true,
           defaultAnimation: 2,
         }
       ],
@@ -68,25 +69,11 @@ class BestOf extends React.Component {
     this.handleMarkerRightclick = this.handleMarkerRightclick.bind(this);
   }
 
-  // componentDidMount() {
-  //   setTimeout(() => {
-  //     let markers = this.state.markers;
-  //   //   console.log('markers = ', markers);
-  //   //   markers = update(markers, {
-  //   //     $push: [
-  //   //       {
-  //   //         position: {
-  //   //           lat: 25.99,
-  //   //           lng: 122.9,
-  //   //         },
-  //   //         defaultAnimation: 2,
-  //   //         key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
-  //   //       },
-  //   //     ],
-  //   //   });
-  //   //   this.setState( {markers} );
-  //   // }, 2000);
-  // }
+  componentDidMount() {
+    setTimeout(() => {
+
+    }, 2000);
+  }
   handleMarkerClick(marker) {
     marker.showInfo = true;
     this.setState(this.state);
@@ -106,7 +93,17 @@ class BestOf extends React.Component {
         onCloseclick={this.handleMarkerClose.bind(this, marker)} >
 
         <div>
-          { this.state.markers[ref].info }
+          <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            width="16" height="16" viewBox="0 0 16 16">
+              <path d="M3.5 0c-1.7 0-3 1.6-3 3.5 0 1.7 1 3 2.3 3.4l-.5 8c0
+            .6.4 1 1 1h.5c.5 0 1-.4 1-1L4 7C5.5 6.4 6.5 5 6.5
+            3.4c0-2-1.3-3.5-3-3.5zm10 0l-.8 5h-.6l-.3-5h-.4L11
+            5H10l-.8-5H9v6.5c0 .3.2.5.5.5h1.3l-.5 8c0 .6.4 1 1 1h.4c.6 0
+            1-.4 1-1l-.5-8h1.3c.3 0 .5-.2.5-.5V0h-.4z"/>
+          </svg>
+           &nbsp; { this.state.markers[ref].info }
+           <br />
+          Votes: { Math.floor(Math.random() * (100 - 70)) + 80 }
         </div>
 
       </InfoWindow>
