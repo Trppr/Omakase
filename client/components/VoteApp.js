@@ -125,8 +125,8 @@ class VoteApp extends React.Component {
                                 handleGoogleSearch={this.handleGoogleSearch}
                                 handleVote={this.handleVote}
                             />
-                              <PhotoUpload />
-          
+                              {/* <PhotoUpload foodType={this.state.foodType}/>  */}
+
                         </div>
                     </div>
                 </div>
@@ -153,8 +153,10 @@ class VoteApp extends React.Component {
                             <div className="main-content restaurant-content">
                                 <h1> Sorry, we did not find what you were looking for... </h1>
                                 <Button bsSize="large" className="main-button" onClick={() => {this.navigateToVoteSurvey()}}> Try Again </Button>
+                                <PhotoUpload foodType={this.state.foodType}/>
                             </div>
                         </div>
+
                     </div>
                 );
             } else {
@@ -169,9 +171,11 @@ class VoteApp extends React.Component {
                                         <RestaurantResult key={index} result={result} handleRestaurantChoice={this.handleRestaurantChoice}/>
                                     ))}
                                 </div>
+                                <PhotoUpload foodType={this.state.foodType}/>
                                 <Button bsSize="large" className="main-button" onClick={() => {this.handleVote()}}> Vote! </Button>
                             </div>
                         </div>
+
                     </div>
                 );
 

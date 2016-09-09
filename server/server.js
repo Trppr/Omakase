@@ -11,6 +11,7 @@ var dishRouter = require('./router/dishRouter.js');
 var searchGoogleRouter = require('./router/searchGooglePlacesRouter.js');
 var googleLocation = require('./router/googleLocation.js');
 var photoRouter = require('./router/photoRouter.js');
+var galleryRouter = require('./router/galleryRouter.js');
 
 app.use(cors());
 app.use(bodyParse.json({limit: '50mb'}));
@@ -23,6 +24,7 @@ app.use('/api/search', searchRouter);
 app.use('/api/dish', dishRouter);
 app.use('/api/location', googleLocation);
 app.use('/api/photo', photoRouter);
+app.use('/api/gallery', galleryRouter);
 
 app.get('*', function (request, response){
   response.sendFile(path.resolve('./client', 'index.html'));
