@@ -8,23 +8,23 @@ class PhotoUpload extends React.Component {
     super(props);
     this.state = {
       photo: '',
-      photoPreviewUrl: ''
+      photoPreviewUrl: '',
+      foodType: props.foodType
     };
   }
 
   photoSubmit(e) {
     let that = this;
     e.preventDefault();
-    //console.log("sliced url: ",  this.state.photoPreviewUrl);
-    // if (this.state.photoPreviewUrl) {
+
     axios.post('/api/photo/upload', {image: this.state.photoPreviewUrl.slice(23)})
       .then(function(response) {
-        console.log("Photo uploaded successfully", response);
+        //console.log("Photo uploaded successfully", response);
         that.setState({
           photo: '',
           photoPreviewUrl: ''
         });
-        render(<div>Photo successfully uploaded!</div>, document.getElementById('loadsuccess'));
+        render(<div>Photo successfully uploaded</div>, document.getElementById('loadsuccess'));
       })
       .catch(function(error) {
         console.log(error);
@@ -44,7 +44,7 @@ class PhotoUpload extends React.Component {
         photoPreviewUrl: photoReader.result
       });
     }
-
+    console.log("foodType: ", this.state.foodType);
     photoReader.readAsDataURL(photoFile);
 
   }

@@ -77,7 +77,11 @@ body {
     position: relative;
     text-align: center;
 }
+.photoloader {
 
+  margin: auto;
+  text-align: center;
+}
 .about-content {
     margin-top: 80px;
     color: white;
@@ -177,6 +181,10 @@ body {
   justify-content: center;
 }
 
+.fileInput {
+  width: 400px;
+  margin: auto;
+}
 .vote-confirm {
     color: white;
     text-shadow:
