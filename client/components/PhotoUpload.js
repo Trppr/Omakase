@@ -19,7 +19,7 @@ class PhotoUpload extends React.Component {
 
     axios.post('/api/photo/upload', {image: this.state.photoPreviewUrl.slice(23)})
       .then(function(response) {
-        console.log("Photo uploaded successfully", response);
+        //console.log("Photo uploaded successfully", response);
         that.setState({
           photo: '',
           photoPreviewUrl: ''

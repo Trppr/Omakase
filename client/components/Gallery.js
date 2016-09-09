@@ -16,15 +16,11 @@ class Gallery extends React.Component {
 
     axios.get('/api/gallery/getPhotos')
       .then(function(response) {
-        console.log("response inside of get photos in gallery component: ", response.data.data);
-      //  const gallery = response.data.map
-      const gallerylinks = [];
-      for (var image in response.data.data) {
-        console.log("image: ", response.data.data[image]);
+        const gallerylinks = [];
+        for (var image in response.data.data) {
+        //console.log("image: ", response.data.data[image]);
         gallerylinks.push(response.data.data[image].link);
-       //<img src={image.link} />
       }
-      console.log("gallerylinks:", gallerylinks);
         that.setState({
           gallery: gallerylinks
         });
@@ -39,17 +35,24 @@ class Gallery extends React.Component {
   }
 
   render() {
-    console.log('gallery inside render', this.state.gallery)
-
     if (this.state.gallery !== null) {
     return (
       <div>
-        {this.state.gallery.map((img)=> { return <img src={img} />})}
+      <NavBar navLink={"/vote"} navMessage={"Go Vote!"}/>
+        <div>
+          {this.state.gallery.map((img)=> { return <img src={img} />})}
+        </div>
       </div>
+
     );
     }
     else {
-      return (<div>No photos in gallery</div>)
+      return (
+        <div>
+          <NavBar navLink={"/vote"} navMessage={"Go Vote!"}/>
+            <div>No photos in gallery</div>
+        </div>
+      )
     }
   }
 }

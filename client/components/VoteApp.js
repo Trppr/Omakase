@@ -171,8 +171,10 @@ class VoteApp extends React.Component {
                                         <RestaurantResult key={index} result={result} handleRestaurantChoice={this.handleRestaurantChoice}/>
                                     ))}
                                 </div>
-                                <PhotoUpload foodType={this.state.foodType}/>
-                                <Button bsSize="large" className="main-button" onClick={() => {this.handleVote()}}> Vote! </Button>
+                                <div className="photoloader">
+                                  <PhotoUpload foodType={this.state.foodType}/>
+                                  <Button bsSize="large" className="main-button" onClick={() => {this.handleVote()}}> Vote! </Button>
+                                </div>
                             </div>
                         </div>
 
